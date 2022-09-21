@@ -28,16 +28,15 @@
 }
 
 def decode_char(char)
-  decoded_char = @letters[char]
-  return decoded_char
+  @letters[char]
 end
 
 def decode_word(word)
-  letters = word.split(' ')
-  letters.each_with_index do |letter, index|
+  letters = word.split
+  letters.each_with_index do |_, index|
     letters[index] = decode_char(letters[index])
   end
-  return letters.join('')
+  letters.join
 end
 
 def decode_morse_code(morse_code)
@@ -45,7 +44,7 @@ def decode_morse_code(morse_code)
   words.each_with_index do |word, index|
     words[index] = decode_word(word)
   end
-  return words.join(' ')
+  words.join(' ')
 end
 
 puts decode_morse_code('.-   -... --- -..-   ..-. ..- .-.. .-..   --- ..-.   .-. ..- -... .. . ...')
